@@ -13,8 +13,12 @@ export class CalculatorController {
 
     getHistoryValue(): string {
         if (this.activeOperator && this.previousOperand !== '') {
-            return `${this.previousOperand} ${this.activeOperator}`;
+            if (this.shouldResetScreen) {
+                return `${this.previousOperand} ${this.activeOperator}`;
+            }
+            return `${this.previousOperand} ${this.activeOperator} ${this.currentOperand}`;
         }
+
         return '';
     }
 
