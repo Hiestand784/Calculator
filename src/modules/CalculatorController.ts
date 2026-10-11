@@ -11,6 +11,13 @@ export class CalculatorController {
         return this.currentOperand;
     }
 
+    getHistoryValue(): string {
+        if (this.activeOperator && this.previousOperand !== '') {
+            return `${this.previousOperand} ${this.activeOperator}`;
+        }
+        return '';
+    }
+
     // Handle User Input
     appendNumber(number: string): void {
         if (number === '.' && this.currentOperand.includes('.')) return;

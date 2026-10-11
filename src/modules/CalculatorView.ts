@@ -5,11 +5,14 @@ export class CalculatorView {
     private controller: CalculatorController;
     private displayElement: HTMLElement;
     private containerElement: HTMLElement;
+    private historyElement: HTMLElement;
 
     constructor() {
         this.controller = new CalculatorController();
         this.displayElement = document.getElementById('display-screen') as HTMLElement;
         this.containerElement = document.getElementById('buttons-container') as HTMLElement;
+        this.historyElement = document.getElementById('display-history') as HTMLElement;
+
         this.setupEvents();
     }
 
@@ -55,5 +58,6 @@ export class CalculatorView {
 
     private render(): void {
         this.displayElement.textContent = this.controller.getDisplayValue();
+        this.historyElement.textContent = this.controller.getHistoryValue();
     }
 }
